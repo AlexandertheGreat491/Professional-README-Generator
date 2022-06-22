@@ -140,7 +140,7 @@ const questions = () => {
             type: 'checkbox',
             name: 'license',
             message: 'The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).',
-            choices: ['MIT', 'Apache', 'Mozilla-Public', 'GNU-General Public'],
+            choices: ['MIT', 'GNU-General Public'],
             validate: licenseInput => {
                 if (licenseInput) {
                     return true;
