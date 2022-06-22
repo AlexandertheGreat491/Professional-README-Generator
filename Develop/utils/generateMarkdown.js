@@ -16,30 +16,48 @@ const licenseInformation = [
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  
+  const selectedLicenseList = licenseInformation.filter(item => item.name === license);
+  return selectedLicenseList[0].badge;
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  const selectedLicenseList = licenseInformation.filter(item => item.name === license);
+  return selectedLicenseList[0].badge;
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license)
+  {
+    return `${license}
+    `;
+  } else return ""
+};
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
+  // license badge
+${renderLicenseBadge(data.license)}
+
+# Project Title
+${data.title}
+
 ## Description:
 ${data.description}
 
 ## Table of Contents
--[Installation](#installation)
--[Usage](#usage)
--[Credits](#credits)
--[License](#license)
+*[Installation](#installation)
+*[Usage](#usage)
+*[Credits](#credits)
+*[License](#license)
 
 ## Installation:
+To install dependencies, run the below command:
+
 ${data.installation}
 
 ## Usage:
@@ -49,7 +67,8 @@ ${data.usage}
 ${data.credits}
 
 ## License
-${data.license}
+This repository is covered under the license '${renderLicenseSection(data.license)}'
+Refer ${renderLicenseLink(data.license)} for more detailed info
 `;
 }
 
