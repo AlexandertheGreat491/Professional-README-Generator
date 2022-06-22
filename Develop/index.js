@@ -110,7 +110,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'usage',
+            name: 'credits',
             message: 'If you used any third-party assets that require attribution, list the creator with links to their primary web presence in this section.',
             validate: creditsInput => {
                 if (creditsInput) {
