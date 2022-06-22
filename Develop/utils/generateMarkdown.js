@@ -1,3 +1,18 @@
+//Variable for license details
+const licenseInformation = [
+  {
+    name: 'GNU GPLv3',
+    badge: "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licesnses/gpl-3.0)",
+    link: "https://choosealicense.com/license/gpl-3.0"
+  },
+  {
+    name: 'MIT License',
+    badge: '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)',
+    link: 'https://choosealicense.com/license/mit/'
+  }
+]
+
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
