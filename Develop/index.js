@@ -169,10 +169,18 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions)
-    .then(function (userInput){
-        console.log(userInput)
-        writeToFile("README.md", generateMarkdown(userInput));
+    inquirer
+    .prompt(questions)
+    .then(answers => {
+        const readmeContent = generateMarkdown(answers);
+        writeFile('./output/README.md', readmeContent);
+    })
+    .catch(error => {
+        if(error.isTtyError) {
+            // Couldn't be rendered
+        } else {
+            //Something went wrong
+        }
     });
  };
 
