@@ -2,10 +2,9 @@
 const inquirer = require('inquirer');
 const fs = required('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
-const util = require('util');
 // TODO: Create an array of questions for user input
-const questions = () => {
-    return inquirer.prompt([
+const questions = 
+    [
         //Project name
         {
             type: 'input',
@@ -26,43 +25,16 @@ const questions = () => {
         {
             type: 'input',
             name: 'description',
-            message: 'What was your motivation? (Required)',
+            message: 'Provide a description of the project (Required)',
             validate: descriptionInput => {
                 if (descriptionInput) {
                     return true;
                 } else {
-                    console.log('Provide a description of your motivation for this project.');
+                    console.log('You need to provide a project description!');
                     return false;
                 }
             }
         },
-        {
-            type: 'input',
-            name: 'description',
-            message: 'Why did you build this project? (Required)',
-            validate: descriptionInput => {
-                if (descriptionInput) {
-                    return true;
-                } else {
-                    console.log('Please provide an explanation for why you built this project.');
-                    return false;
-                }
-            }
-        },
-        {
-            type: 'input',
-            name: 'description',
-            message: 'What did you learn? (Required)',
-            validate: descriptionInput => {
-                if (descriptionInput) {
-                    return true;
-                } else {
-                    console.log('Please provide answer saying what you learned.');
-                    return false;
-                }
-            }
-        },
-
         //Description ends
         //Table of Contents (Optional) will be in the generatemMarkdown.js.
         //Installation
@@ -136,12 +108,26 @@ const questions = () => {
             }
         },
         //Credits ends
+        // Test Instructions 
+        {
+            type: 'input',
+            name: 'testing',
+            message: 'How do you test this project? (Required)',
+            validate: testingInput => {
+                if (testingInput) {
+                    return true;
+                } else {
+                    console.log('You need to describe how to test this project!');
+                    return false;
+                }
+            }
+        },
         // License
         {
             type: 'checkbox',
             name: 'license',
             message: 'The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).',
-            choices: ['MIT', 'GNU-General Public'],
+            choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
             validate: licenseInput => {
                 if (licenseInput) {
                     return true;
@@ -150,40 +136,42 @@ const questions = () => {
                     return false;
                 }
             }
-            
+
         },
 
         console.log('The previous sections are the bare minimum, and your project will ultimately determine the content of the document. You might also want to consider adding the following sections.')
 
-    ]);
-}
+    ];
+
 
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) => {
-        if (err)
-        throw err;
-        console.log('Success! The README has been created!');
+    readmeMarkdown = generateMarkdown(data);
+    // console.log(readmeMarkdown);
+    fs.writeFile(fileName, readmeMarkdown, err => {
+        if (err){
+            console.log(err);
+            return;
+        }
+        console.log('Readme.md created!');
     });
- };
-
+};
+const createReadMe = util.promisfy(writetoFile);
 // TODO: Create a function to initialize app
 function init() {
-    inquirer
-    .prompt(questions)
-    .then(answers => {
-        const readmeContent = generateMarkdown(answers);
-        writeFile('./output/README.md', readmeContent);
+    console.log(`
+    ===================================
+    Create a New ReadMe file
+    ===================================
+    `);
+    return inquirer.prompt(questions)
+    .then(answersData =>{
+        writetoFile('./dist/README.md', answersData);
+    }).catch(err => {
+        console.log(err);
     })
-    .catch(error => {
-        if(error.isTtyError) {
-            // Couldn't be rendered
-        } else {
-            //Something went wrong
-        }
-    });
- };
+};
 
 // Function call to initialize app
 init();
