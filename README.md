@@ -1,6 +1,7 @@
 # Professional README Generator
 
-https://vimeo.com/723823337/13afdb5a62
+Screencast video of application:
+https://vimeo.com/723823337
 
 ## Description
 
@@ -16,7 +17,7 @@ The problem that is solved with this application is creating an application outs
 
 There are two steps that should be taken to install this application. The first step is optional but helpful and the second step is mandatory.
 
-Step One: Watch the screencast video to get an idea of what should happen when you run the application: https://vimeo.com/723823337/13afdb5a62
+Step One: Watch the screencast video to get an idea of what should happen when you run the application: https://vimeo.com/723823337
 
 Step Two: Please access the public repository for this project and clone the code to your local computer. [Public repository URL](https://github.com/AlexandertheGreat491/Professional-README-Generator)
 
