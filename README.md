@@ -18,12 +18,13 @@ There are two steps that should be taken to install this application. The first 
 
 Step One: Watch the screencast video to get an idea of what should happen when you run the application: https://vimeo.com/723823337/13afdb5a62
 
-Step Two: Please access the public repository for this project and clone the code to your local computer. Public repository URL
+Step Two: Please access the public repository for this project and clone the code to your local computer. [Public repository URL](https://github.com/AlexandertheGreat491/Professional-README-Generator)
 
 ## Usage
 
 Please visit the public repository for this project and clone the code to your local computer in order to use and execute the application in the command line.
-Public Repository URL
+
+[Public Repository URL](https://github.com/AlexandertheGreat491/Professional-README-Generator)
 
 ![sampleREADMEgenerator](https://user-images.githubusercontent.com/64184203/175644981-6827dd9b-c866-4ba8-b648-718a25c7d1c5.jpg)
 
