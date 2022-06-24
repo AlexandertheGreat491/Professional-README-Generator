@@ -1,8 +1,8 @@
-//Packages needed for this application
+//Packages needed for this application.
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
-//Creates an array of questions for user input
+//Array of questions for user input.
 const questions =
     
         [
@@ -144,13 +144,14 @@ const questions =
                 }
 
             }
+            //License ends
                 
 
         ];
 
 
 
-//Creates a function to write README file
+//Function writes the README file.
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, function (err) {
         if (err) throw err;
@@ -158,12 +159,12 @@ function writeToFile(fileName, data) {
     })
 };
 
-//Creates a function to initialize app
+//Function to initializes the app.
 function init() {
     inquirer.prompt(questions).then(function (data) {
         writeToFile("README.md", generateMarkdown(data))
     });
 };
 
-// Function call to initialize app
+// Function call to initialize app.
 init();
