@@ -77,7 +77,7 @@ const questions =
             {
                 type: 'input',
                 name: 'usage',
-                message: 'Provide Instructions and examples for use. Include screenshots as needed. Add a screenshot using ![alt text](assets/images/screenshot.png',
+                message: 'Provide Instructions and examples for use. Include screenshots as needed.',
                 validate: usageInput => {
                     if (usageInput) {
                         return true;
