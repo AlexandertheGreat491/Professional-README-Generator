@@ -36,7 +36,7 @@ To install this application, please follow the steps below:
 -${data.install}
 
 ## Usage:
-Provide Instructions and examples for use. Include screenshots as needed. Add a screenshot using ![alt text](assets/images/screenshot.jpg)
+Provide Instructions and examples for use. Include screenshots as needed.
 -${data.usage}
 
 ## Credts
