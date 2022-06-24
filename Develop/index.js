@@ -155,7 +155,7 @@ const questions =
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, function (err) {
         if (err) throw err;
-        console.log('File create!!');
+        console.log('sampleREADME.md file created!!');
     })
 };
 
