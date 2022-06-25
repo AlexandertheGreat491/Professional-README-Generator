@@ -39,5 +39,6 @@ Tutorials used:
 
 ## License
 
+[Link to license](./LICENSE)
 
                     
